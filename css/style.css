@@ -543,7 +543,7 @@ img {
 
 .partfolio-img-box {
 	position: relative;
-
+	overflow: hidden;
 	width: 360px;
 	height: 300px;
 }
@@ -556,6 +556,7 @@ img {
 	width: 100%;
 	height: 100%;
 	transform: translateX(0);
+	transition: transform 250ms ease;
 }
 
 .partfolio-pictures-img {
@@ -565,7 +566,7 @@ img {
 }
 
 .portfolio-pictures-li:hover .partfolio-pictures {
-	transform: translateX(-100%);
+	transform: translateX(100%);
 	transition: transform 250ms ease;
 }
 
@@ -580,6 +581,7 @@ img {
 	padding: 40px 32px;
 	background-color: #4D5AE5;
 	transform: translateX(-100%);
+	transition: transform 250ms ease;
 }
 
 .partfolio-img-text {
