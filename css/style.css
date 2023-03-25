@@ -95,12 +95,35 @@ img {
 }
 
 .header-nav-a {
+	position: relative;
+	display: inline-block;
 	font-weight: 500;
 	font-size: 16px;
 	line-height: 1.5;
 	letter-spacing: 0.02em;
 	color: #2e2f42;
+
 }
+
+.header-nav-visited {
+	color: #404bbf;
+}
+
+.header-nav-visited::after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 48px;
+	transform: translateY(-100%);
+	left: 0;
+	width: 100%;
+	height: 4px;
+	border-radius: 2px;
+	background-color: #404bbf;
+}
+
+
+
 
 .header-nav-a:hover,
 .header-nav-a:focus {
@@ -182,6 +205,12 @@ img {
 	letter-spacing: 0.04em;
 	color: #ffffff;
 	cursor: pointer;
+}
+
+.introduction-button:hover,
+.introduction-button::after {
+	background-color: #404BBF;
+	transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Info-text */
@@ -463,8 +492,75 @@ img {
 
 
 
+/* Dackdrop */
 
-/* portfolio */
+.backdrop {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(46, 47, 66, 0.4);
+	transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1), pointer-events 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(1);
+	width: 408px;
+	min-height: 576px;
+	padding: 24px 0;
+	transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+	background: #FCFCFC;
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+}
+
+.backdrop.is-hidden .modal {
+	transform: translate(-50%, -50%) scale(0);
+}
+
+.modal-container {
+	width: 360px;
+	margin: 0 auto;
+}
+
+.modal-button {
+	display: block;
+	margin-left: auto;
+	width: 24px;
+	height: 24px;
+	border-radius: 24px;
+	background: #E7E9FC;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.modal-icon {
+	width: 8px;
+	height: 8px;
+	fill: #000000;
+}
+
+.is-hidden {
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+}
+
+
+
+
+
+
+
+
+/* Portfolio */
 
 .partfolio-main {
 	padding: 90px 0 120px 0;
@@ -540,7 +636,8 @@ img {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	transform: translateX(0);
+	transform: translateY(0);
+	transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .partfolio-pictures-img {
@@ -551,8 +648,7 @@ img {
 
 .portfolio-pictures-li:hover .partfolio-pictures,
 .portfolio-pictures-a:focus .partfolio-pictures {
-	transform: translateX(100%);
-	transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	transform: translateY(-100%);
 }
 
 .partfolio-overlay {
@@ -565,7 +661,8 @@ img {
 
 	padding: 40px 32px;
 	background-color: #4D5AE5;
-	transform: translateX(-100%);
+	transform: translateY(100%);
+	transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .partfolio-img-text {
@@ -574,8 +671,7 @@ img {
 
 .portfolio-pictures-li:hover .partfolio-overlay,
 .portfolio-pictures-a:focus .partfolio-overlay {
-	transform: translateX(0);
-	transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	transform: translateY(0);
 }
 
 
